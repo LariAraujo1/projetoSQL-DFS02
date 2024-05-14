@@ -1,15 +1,3 @@
---Apagando bd se existir
-drop database dbLoja;
-
---visualizando banco de dados
-show databases;
-
---criando banco de dados
-create database dbLoja;
-
---acessando banco de dados
-use dbLoja;
-
 create table tbFuncionarios(
 codFunc int not null auto_increment,
 nome varchar(100) not null,
@@ -76,37 +64,4 @@ primary key(codVend),
 foreign key(codUsu) references tbUsuarios(codUsu),
 foreign key(codProd) references tbProdutos(codProd),
 foreign key(codCli) references tbClientes(codCli)
-
 );
-
---visualizando as tabelas criadas
-show tables;
-
---visualizando as estruturas das tabelas
-desc tbFuncionarios;
-desc tbFornecedores;
-desc tbClientes;
-desc tbUsuarios;
-desc tbProdutos;
-desc tbVendas;
-
-
-
---inserindo valores registros nas tabelas
-
-insert into tbFuncionarios(nome,email,cpf,telCel,logradouro,numero,cep, bairro, cidade, estado)
-	values('lara Araujo','larissa.tanascimento@senacsp.edu.br','526.287.456.32','95874-5525', 'Rua Dr. Antonio Bento', '355','05422-000','Santo Amaro', 'Sao Paulo', 'SP'); -- o ~ de são paulo nao funciona no prompt mas esta correto
-
-insert into tbFuncionarios(nome,email,cpf,telCel,logradouro,numero,cep, bairro, cidade, estado)
-	values('larissa Araujo','larissatamiresar@gmail.com','527.287.656.82','95885-5525', 'Rua Dr. Antonio Bento', '358','04752-000','Santo Amaro', 'Sao Paulo', 'SP');
-
-insert into tbUsuarios(nome,senha,codFunc)
-	values('lara.araujo','deximbranco',1);
-insert into tbUsuarios(nome,senha,codFunc)
-	values('Ana.frios','1234',2);
-
---visualizando os registros nos campos das tabelas
-select * from tbUsuarios;
-select * from tbFuncionarios;
-
-
