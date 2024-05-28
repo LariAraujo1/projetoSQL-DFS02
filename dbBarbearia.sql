@@ -45,4 +45,6 @@ select codProd as 'Código', descricao as 'Descrição', marca as 'Marca', 'Sim'
 update tbProdutos set preco= preco*1.10 where codProd=3;
 --caso eu queira modificar todos basta tirar o where codProd=3
 
+update tbProdutos set preco=preco*0.20 where codProd=1;
+
 select * from tbProdutos; 
