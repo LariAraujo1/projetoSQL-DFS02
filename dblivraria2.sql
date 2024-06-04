@@ -151,7 +151,7 @@ select * from tbLivros;
 
 delete from tbItens_Vendas where idVenda=2;
 delete from tbVendas where idVenda=1;
-delete  from tbClientes where idCliente = 1;
+delete from tbClientes where idCliente = 1;
 
 select * from tbVendas;
 select * from tbClientes;

@@ -34,4 +34,20 @@ select * from PRODUTOS;
 
 select distinct tipo from PRODUTOS order by tipo; 
 
--- select * from
+
+-- filtrar produtos (maior que)
+
+-- select * from produtos where valor > 600;
+-- select * from produtos where valor >= 600;
+-- select valor as 'Valor' from produtos where valor >= 600;
+
+-- Busca por código
+
+-- select * from produtos where codigo=1;
+
+-- Buscar nome
+
+select * from produtos where tipo like '%a%';
+-- a% - começam com a 
+-- %a - termina com a
+-- %a% - possui a em qualquer lugar
