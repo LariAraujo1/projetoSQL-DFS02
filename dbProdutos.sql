@@ -1,4 +1,4 @@
-;drop database dbProdutos;
+drop database dbProdutos;
  
 create database dbProdutos;
  
@@ -102,3 +102,33 @@ select * from produtos where nome not like '%y%';
 
 -- 6-Exibir todos os produtos que se iniciem com nome 'MO' e tenham como tipo as letras 'MA' 
 select * from produtos where nome like 'mo%' and tipo like '%ma%';
+
+-- ORDER BY
+select * from produtos order by tipo;
+
+-- ORDER BY DESC E ASC
+select * from produtos order by valor desc;
+select * from produtos order by valor asc;
+
+-- ORDER BY SEM REPETIÇÃO
+select distinct tipo from produtos order by tipo asc;
+
+--LIMIT
+select * from produtos limit 5; 
+select * from produtos order by valor limit 5;
+select * from produtos order by valor asc limit 5;
+
+
+-- Laboratorio - Página 53 
+
+--1. Escreva uma consulta que exiba os dados da tabela PRODUTOS na forma crescente pelo campo NOME. 
+select * from produtos order by nome asc;
+
+--2. Escreva uma consulta que exiba o NOME dos produtos ordenado de forma decrescente e o VALOR de forma crescente. 
+select nome,valor from produtos order by nome desc, valor asc;
+
+--3. Escreva uma consulta que exiba os três produtos mais caros.
+select * from produtos order by valor desc limit 3;
+
+--4. Escreva uma consulta que exiba o VALOR do produto mais barato
+select * from produtos order by valor asc limit 1;
