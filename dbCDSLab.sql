@@ -1,8 +1,8 @@
-drop database dbCDS;
+drop database dbCDSLab;
 
-create database dbCDS;
+create database dbCDSLab;
 
-use dbCDS;
+use dbCDSLab;
 
 create table tbArtistas(
 codArt int not null auto_increment,
@@ -103,6 +103,8 @@ codArt int not null,
 foreign key(codTit) references tbTitulos(codTit),
 foreign key(codArt) references tbArtistas(codArt)
 );
+
+
 desc tbArtistas;
 desc tbFuncionarios;
 desc tbGravadoras;
@@ -116,6 +118,8 @@ desc tbTitulos; -- 2 foreign key categorias, gravadoras
 desc tbPedidos; -- 2 foreign key clientes, funcionarios
 desc tbTitulosPedidos; -- não tem chave primaria, TbPedidos e tbTitulos  
 desc tbTitulosArtista; -- não tem chave primaria, tbArtistas e tbTitulos  
+
+
 --insert artistas
 insert into tbArtistas (nomeArt) values 
 	('Marisa Monte'),('Gilberto Gil'),('Milton Nascimento'),('Legião Urbana'),('The Beatles'),('Caetano Veloso'),('Rita Lee');
@@ -210,3 +214,25 @@ insert into tbTitulosPedidos(codPed,codTit,qtdCd,valCd) values
 insert into tbTitulosArtista(codTit,codArt)values
 (1,1),(2,2),(3,2),(4,2),(5,3),(6,4),(7,4),(8,5),(9,6),(10,7);
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--- Laboratório --- pag88-pag89 - Join
+
+-- 1. Selecione o nome dos CDs e o nome da gravadora de cada CD. 
+
+-- select nomeCd,nomeGrav from tbTitulos inner join tbGravadoras on tbTitulos.codGrav = tbGravadoras.codGrav; 
+-- O contrario não funcionaria pois tbGravadora não possui chave estrangeira
+
+select tit.nomeCd,grav.nomeGrav from tbTitulos as tit inner join tbGravadoras as grav on tit.codGrav = grav.codGrav;
+
+
+-- 2. Selecione o nome dos CDs e o nome da categoria de cada CD. 
+-- select nomeCd, nomeCat from tbTitulos inner join tbCategorias on tbTitulos.codCat = tbCategorias.codCat;
+select tit.nomeCd, cat.nomeCat from tbTitulos as tit inner join tbCategorias as cat on tit.codCat = cat.codCat;
+
+
+--3. Selecione o nome dos CDs, o nome das gravadoras de cada CD e o nome da categoria de cada CD.
+
+select nomeCd,nomeGrav, nomeCat from tbTitulos inner join tbGravadoras on tbTitulos.codGrav=tbGravadoras.codGrav inner join tbCategorias on tbTitulos.codGrav = tbCategorias.codCat;   
+
+select tit.nomeCd,cat.nomeGrav, grav.nomeCat from tbTitulos as tit inner join tbGravadoras as grav on tbTitulos.codGrav=tbGravadoras.codGrav inner join tbCategorias as cat on tbTitulos.codGrav = tbCategorias.codCat;   
