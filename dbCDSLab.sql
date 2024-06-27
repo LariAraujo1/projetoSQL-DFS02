@@ -228,11 +228,16 @@ select tit.nomeCd,grav.nomeGrav from tbTitulos as tit inner join tbGravadoras as
 
 -- 2. Selecione o nome dos CDs e o nome da categoria de cada CD. 
 -- select nomeCd, nomeCat from tbTitulos inner join tbCategorias on tbTitulos.codCat = tbCategorias.codCat;
-select tit.nomeCd, cat.nomeCat from tbTitulos as tit inner join tbCategorias as cat on tit.codCat = cat.codCat;
+select tit.nomeCd as "Título", cat.nomeCat as "Categoria" from tbTitulos as tit inner join tbCategorias as cat on tit.codCat = cat.codCat;
 
 
 --3. Selecione o nome dos CDs, o nome das gravadoras de cada CD e o nome da categoria de cada CD.
 
-select nomeCd,nomeGrav, nomeCat from tbTitulos inner join tbGravadoras on tbTitulos.codGrav=tbGravadoras.codGrav inner join tbCategorias on tbTitulos.codGrav = tbCategorias.codCat;   
+-- select nomeCd,nomeGrav, nomeCat from tbTitulos inner join tbGravadoras on tbTitulos.codGrav=tbGravadoras.codGrav inner join tbCategorias on tbTitulos.codGrav = tbCategorias.codCat;   
 
-select tit.nomeCd,cat.nomeGrav, grav.nomeCat from tbTitulos as tit inner join tbGravadoras as grav on tbTitulos.codGrav=tbGravadoras.codGrav inner join tbCategorias as cat on tbTitulos.codGrav = tbCategorias.codCat;   
+select tit.nomeCd as "Título", grav.nomeGrav as "Gravadora", cat.nomeCat as "Categoria" from tbTitulos as tit 
+inner join tbGravadoras as grav on tit.codGrav=grav.codGrav inner join tbCategorias as cat on grav.codGrav = cat.codCat;   
+
+
+--4. Selecione o nome dos clientes e os títulos dos CDs vendidos em cada pedido que o cliente fez. 
+select  from tbTitulosPedidos as tit inner join tbClientes as cli on tit.codCli = cli.codCli 

@@ -132,3 +132,15 @@ select * from produtos order by valor desc limit 3;
 
 --4. Escreva uma consulta que exiba o VALOR do produto mais barato
 select * from produtos order by valor asc limit 1;
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------- Funções ----------------------------------------------
+-- select sum(quantidade) from produtos;
+-- select sum(quantidade) as 'Quantidade de produtos nos estoque' from produtos;
+select count(*) from produtos;
+-- select max(valor) as 'Maior valor' from produtos;
+-- select min(valor) as 'menor valor' from produtos;
+-- select avg(valor) as 'Media dos valores' from produtos;
